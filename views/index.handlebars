@@ -1,38 +1,80 @@
-<h1>Burgers!</h1>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-<h2>Burgers that are not devoured!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<div class="jumbotron" style="background-color:lightskyblue;">
+  <h2 class="text-center">Hungry Hungry Burger - Existential Handlebars for the masses</h2>
+  <br>
+  <img src="./assets/images/BurgerTime-Logo.gif" class="rounded mx-auto center-block" alt="Eat da burger">
+  {{!-- height="42" width="42" --}}
+  <br>
+  <h4 class="text-center">If you don't eat your meat, how can you have any pudding?</h4>
+</div>
+<div class="jumbotron" style="background-color:lightgreen;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Add a Burger</h2>
+        <form class="create-form">
 
-<h2>Burgers that are devoured!</h2>
+          <div class="form-group">
+            <label for="bu">Burger Name:</label>
+            <input type="text" id="bu" name="name">
+          </div>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+          <div class="form-group">
+            <label for="devoured">Devoured?</label><br>
+            <input type="radio" name="devoured" value="1" checked> consumed<br>
+            <input type="radio" name="devoured" value="0"> ready-to-eat
+          </div>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
+          <button type="submit" class="btn btn-warning">Add Burger</button>
+      </div>
+    </div>
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Burgers to eat</h2>
+      <div class="jumbotron bg-cover"
+        style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url('./assets/images/background1.png')">
+        <div class="container">
+          <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{> burgers/burger-block devoured=true}}
+            {{/unless}}
+            {{/each}}
+          </ul>
 
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not Devoured
+        </div>
+        <!-- /.container   -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2>Burgers already consumed</h2>
+      <div class="jumbotron bg-cover"
+        style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url('./assets/images/background2.png')">
+        <div class="container">
+          <ul>
+            {{#each burgers}}
+            {{#if devoured}}
+            {{> burgers/burger-block devoured=false}}
+            {{/if}}
+            {{/each}}
+          </ul>
+
+
+        </div>
+        <!-- /.container   -->
+      </div>
+    </div>
   </div>
+</div>
 
-  <button type="submit">Add Burger</button>
 </form>

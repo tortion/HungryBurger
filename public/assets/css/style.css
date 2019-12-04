@@ -2,6 +2,8 @@ li {
   padding: 5px;
   margin: 5px;
   background: #faebd7;
+  text-align: right;
+  list-style-type: none;
 }
 
 .label {
@@ -16,4 +18,11 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+
+.bg-cover {
+  background-attachment: static;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 400px;
 }
